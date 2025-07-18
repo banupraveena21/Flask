@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.name }} - Profile{% endblock %}
+
+{% block content %}
+<div class="card profile-card mx-auto" style="max-width: 500px;">
+  <img src="{{ url_for('static', filename='images/profiles/' ~ user.image) }}" class="card-img-top" alt="{{ user.name }}">
+  <div class="card-body">
+    <h4 class="card-title">
+      {{ user.name }}
+      {% if is_new %}
+        <span class="badge bg-success ms-2">🌟 New User</span>
+      {% endif %}
+    </h4>
+    <p class="card-text">{{ user.bio }}</p>
+    <p class="text-muted"><strong>Joined:</strong> {{ user.joined.strftime('%B %d, %Y') }}</p>
+  </div>
+</div>
+{% endblock %}

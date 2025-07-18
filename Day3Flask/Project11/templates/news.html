@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Latest News</h2>
+<ul class="list-group">
+  {% for item in headlines %}
+  <li class="list-group-item d-flex justify-content-between align-items-start 
+             news-item {{ item.category|lower }}">
+    <div>
+      <strong>{{ item.title }}</strong>
+      {% if item.is_breaking %}
+        <span class="badge bg-danger ms-2">Breaking</span>
+      {% endif %}
+      <div class="text-muted small">
+        {{ item.datetime.strftime("%B %d, %Y — %I:%M %p") }}
+      </div>
+    </div>
+    <span class="badge bg-secondary category-label">{{ item.category }}</span>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

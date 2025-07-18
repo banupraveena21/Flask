@@ -1,0 +1,9 @@
+.unanswered .accordion-button {
+  background-color: #fff3cd;
+  color: #856404;
+  font-style: italic;
+}
+
+.accordion-button {
+  cursor: pointer;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ event_name }} Countdown</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>{{ event_name }}</h1>
+
+    {% if event_started %}
+      <p class="started-msg">🎉 The event has started!</p>
+    {% else %}
+      <div id="countdown">
+        <span id="days">--</span> days
+        <span id="hours">--</span> hours
+        <span id="minutes">--</span> minutes
+        <span id="seconds">--</span> seconds
+      </div>
+    {% endif %}
+  </div>
+
+  <script>
+    const eventDate = new Date("{{ event_date }}");
+  </script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

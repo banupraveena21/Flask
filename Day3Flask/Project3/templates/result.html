@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Result Dashboard</h2>
+    <h4>Student Name: {{ student.name }}</h4>
+
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for subject, mark in student.subjects.items() %}
+            <tr>
+                <td>{{ subject }}</td>
+                <td>{{ mark }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h5>Final Grade: 
+        <span class="
+            {% if grade == 'A' %} grade-a 
+            {% elif grade == 'B' %} grade-b 
+            {% else %} grade-c 
+            {% endif %}">
+            {{ grade }}
+        </span>
+    </h5>
+{% endblock %}

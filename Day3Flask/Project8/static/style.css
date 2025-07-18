@@ -1,0 +1,9 @@
+.featured-post {
+  background-color: #fff3cd;
+  border-left: 6px solid #ffc107;
+}
+
+.featured-badge {
+  height: 24px;
+  width: 24px;
+}

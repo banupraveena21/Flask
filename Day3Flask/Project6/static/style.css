@@ -1,0 +1,10 @@
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
+.star-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 2px;
+}

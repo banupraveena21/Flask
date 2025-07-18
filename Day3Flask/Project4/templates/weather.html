@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+</head>
+<body>
+
+    <h1>Weather in {{ weather.city }}</h1>
+    <p>Condition: {{ weather.condition }}</p>
+    <p>Temperature: {{ weather.temperature }}°C</p>
+    <img src="{{ url_for('static', filename=images/sun.jpg) }}" alt="weather icon">
+
+    <canvas id="tempChart"></canvas>
+
+    
+    <script>
+        const tempData = {{ weather.week_temps | tojson | safe }};
+        renderTemperatureChart(tempData);  
+    </script>
+
+</body>
+</html>

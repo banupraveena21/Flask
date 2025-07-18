@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>{{ title }}</title></head>
+<body>
+  <h2>Latest News</h2>
+  <ul>
+    {% for news in news_items %}
+      <li>{{ news }}</li>
+    {% else %}
+      <li>No news available right now.</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Available Products</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for product in products %}
+  <div class="col">
+    <div class="card h-100">
+      <img src="{{ url_for('static', filename='images/' ~ product.image) }}" class="card-img-top product-img" alt="{{ product.name }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">${{ "%.2f"|format(product.price) }}</p>
+        {% if product.in_stock %}
+          <a href="#" class="btn btn-success">Buy Now</a>
+        {% else %}
+          <span class="badge bg-secondary">Out of Stock</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Server Error{% endblock %}
+
+{% block content %}
+  <div class="error-box">
+    <div class="error-code">500</div>
+    <p class="error-message">{{ message }}</p>
+    <div class="buttons">
+      <a href="{{ url_for('home') }}" class="btn btn-primary">Go Home</a>
+      <a href="javascript:location.reload();" class="btn btn-secondary">Retry</a>
+    </div>
+  </div>
+{% endblock %}

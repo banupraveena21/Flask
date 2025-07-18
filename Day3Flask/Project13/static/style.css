@@ -1,0 +1,18 @@
+.user-photo {
+  height: 200px;
+  object-fit: cover;
+}
+
+.testimonial-card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.stars {
+  margin-top: 10px;
+}
+
+.star {
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+}

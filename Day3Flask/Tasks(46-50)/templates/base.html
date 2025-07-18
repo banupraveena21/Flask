@@ -1,0 +1,26 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Flask Site{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+</nav>
+
+<div class="container">
+    {% block content %}<p style="color: red;">This is a warning.</p>{% endblock %}
+</div>
+
+<footer>
+    <p>&copy; 2025 Flask Static Demo</p>
+</footer>
+
+<!-- 4. Link JS -->
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

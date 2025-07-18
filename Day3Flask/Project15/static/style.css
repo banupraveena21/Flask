@@ -1,0 +1,33 @@
+.timeline {
+  border-left: 4px solid #333;
+  padding-left: 20px;
+}
+
+.timeline-year {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.timeline-year h4 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.timeline-icon {
+  width: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.timeline-year.highlight h4 {
+  color: #d63384;
+  text-shadow: 0 0 5px rgba(214, 51, 132, 0.3);
+}
+
+.timeline-year ul {
+  padding-left: 1rem;
+}
+
+.timeline-year li {
+  margin-bottom: 5px;
+}

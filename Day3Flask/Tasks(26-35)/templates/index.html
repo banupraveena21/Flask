@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Home - My Flask App{% endblock %}
+
+{% block content %}
+<h1>Welcome to the Home Page</h1>
+<p>This is the homepage of our Flask application.</p>
+
+{% block extra_home_content %}
+<!-- Nested block for home-specific content -->
+<p class="text-success">Enjoy exploring Flask with Jinja2 templates!</p>
+{% endblock %}
+
+{% endblock %}

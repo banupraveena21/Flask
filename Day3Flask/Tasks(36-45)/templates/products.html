@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>{{ title }}</title></head>
+<body>
+  <h2>Products</h2>
+  <div style="display: flex; gap: 1rem;">
+    {% for item in products %}
+      <div style="border: 1px solid #ccc; padding: 1rem; width: 200px;">
+        <h4>{{ item.name }}</h4>
+        <p>Price: ${{ item.price }}</p>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if tax %}
+    <hr>
+    <p>Tax: ${{ tax }}</p>
+    <p><strong>Total: ${{ total }}</strong></p>
+  {% endif %}
+</body>
+</html>

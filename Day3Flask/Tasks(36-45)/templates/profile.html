@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><title>{{ title }}</title></head>
+<body>
+  <h1>User Profile</h1>
+
+  {% if is_logged_in %}
+    <p><button>Logout</button></p>
+  {% else %}
+    <p><button>Login</button></p>
+  {% endif %}
+
+  <div style="border: 1px solid #ccc; padding: 1rem;">
+    <p><strong>Name:</strong> {{ user.name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Age:</strong> {{ user.age }}</p>
+    <p><strong>City:</strong> {{ user.city }}</p>
+  </div>
+
+  <p>Current time: {{ current_time.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+</body>
+</html>

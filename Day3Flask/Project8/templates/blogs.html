@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Latest Blogs</h2>
+<div class="list-group">
+  {% for blog in blogs %}
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start {% if blog.featured %}featured-post{% endif %}">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ blog.title }}</h5>
+        {% if blog.featured %}
+          <img src="{{ url_for('static', filename='images/featuredbadge.png') }}" alt="Featured" class="featured-badge" />
+        {% endif %}
+      </div>
+      <p class="mb-1">{{ blog.snippet }}</p>
+      <small>By {{ blog.author }}</small>
+    </a>
+  {% endfor %}
+</div>
+{% endblock %}

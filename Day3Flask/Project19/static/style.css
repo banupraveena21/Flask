@@ -1,0 +1,67 @@
+body {
+  background: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.error-container {
+  text-align: center;
+  background: white;
+  padding: 40px 60px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  max-width: 400px;
+}
+
+.error-code {
+  font-size: 10rem;
+  font-weight: 900;
+  color: #dc3545; /* Bootstrap's red */
+  letter-spacing: 8px;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+.error-message {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  color: #343a40;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #565e64;
+}

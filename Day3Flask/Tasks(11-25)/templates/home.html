@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jinja2 Demo</title>
+</head>
+<body>
+
+{# 1. Pass a variable username = "Mahesh" to home.html and display it. #}
+<h1>Welcome, {{ username }}!</h1>
+
+{# 2. Pass a list of strings (["Python", "Flask", "Jinja"]) to a template and loop through with {% for %}. #}
+<h2>Tech Stack</h2>
+<ul>
+  {% for tech in tech_stack %}
+    <li>{{ loop.index }}. {{ tech }}</li>
+  {% else %}
+    <li>No technologies listed.</li>
+  {% endfor %}
+</ul>
+
+{# 3. Add an {% if %} block to display different greetings based on a logged_in boolean. #}
+{% if logged_in %}
+  <p>You are logged in. Welcome back!</p>
+{% else %}
+  <p>Please log in to continue.</p>
+{% endif %}
+
+{# 8. Display the current date passed as a variable (datetime.now()). #}
+<p>Today's date: {{ current_date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+
+{# 9. Use a dictionary in Jinja2 and loop through its keys and values. #}
+<h2>User Info</h2>
+<ul>
+  {% for key, value in user_data.items() %}
+    <li><strong>{{ key.capitalize() }}:</strong> {{ value }}</li>
+  {% endfor %}
+</ul>
+
+{# 10. Show a dynamic message like “Welcome back, {{ name }}” if name is passed. #}
+{% if name %}
+  <h3>Welcome back, {{ name.capitalize() }}!</h3>
+{% endif %}
+
+{# 11. Add conditional HTML rendering (e.g., “Admin Panel” only for role = "admin"). #}
+{% if role == "admin" %}
+  <div style="color: red;"><strong>Admin Panel</strong></div>
+{% endif %}
+
+{# 13. Capitalize a name using {{ name.capitalize() }}. #}
+<p>Capitalized Name: {{ name.capitalize() }}</p>
+
+{# 14. Limit characters in a description using {{ description[:50] }}. #}
+<p>Short Description: {{ description[:50] }}...</p>
+
+{# 15. Use safe filter to render a variable with embedded HTML tags. #}
+<p>HTML Greeting: {{ welcome_html | safe }}</p>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ name }}!</h2>
+{% if available %}
+    <p><strong>Available for hire</strong></p>
+{% endif %}
+<img src="{{ url_for('static', filename='download.jpg') }}" alt="Profile Image" width="200">
+{% endblock %}

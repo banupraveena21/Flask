@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Photo Gallery</h2>
+
+{% if images %}
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  {% for img in images %}
+  <div class="col">
+    <div class="card gallery-card h-100">
+      <img src="{{ url_for('static', filename='images/gallery/' ~ img) }}" class="card-img-top gallery-img" alt="Photo">
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="alert alert-warning text-center" role="alert">
+  No photos available in the gallery.
+</div>
+{% endif %}
+{% endblock %}

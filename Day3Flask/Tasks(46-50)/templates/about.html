@@ -1,0 +1,11 @@
+<!-- templates/about.html -->
+{% extends "base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<h1>About This App</h1>
+<p>This app demonstrates static files in Flask.</p>
+
+<img src="{{ url_for('static', filename='images/download.png') }}" alt="Flask Logo" width="200">
+{% endblock %}

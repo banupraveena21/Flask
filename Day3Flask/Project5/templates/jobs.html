@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="mb-4">Available Jobs</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for job in jobs %}
+        <div class="col">
+            <div class="card h-100 {% if job.remote %}border-success{% endif %}">
+                <img src="{{ url_for('static', filename='images/' ~ job.logo) }}" class="card-img-top p-3" alt="{{ job.company }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ job.title }}</h5>
+                    <p class="card-text"><strong>Company:</strong> {{ job.company }}</p>
+                    <p class="card-text"><strong>Location:</strong> {{ job.location }}</p>
+                    {% if job.remote %}
+                        <span class="badge bg-success">Remote</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
