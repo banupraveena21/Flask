@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Greeting{% endblock %}
+
+{% block content %}
+    <h2>Greeting</h2>
+    {% if hour == -1 %}
+        <p>Please provide a valid hour between 0 and 23 as query parameter, e.g. ?hour=9</p>
+    {% else %}
+        {% if 5 <= hour < 12 %}
+            <p>Good Morning! ☀️</p>
+        {% elif 12 <= hour < 18 %}
+            <p>Good Afternoon! 🌤️</p>
+        {% else %}
+            <p>Good Night! 🌙</p>
+        {% endif %}
+    {% endif %}
+    <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+{% endblock %}

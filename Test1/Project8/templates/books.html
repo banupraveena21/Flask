@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Books in {{ genre }}</title>
+</head>
+<body style="background: bisque;">
+    <h1>Recommended Books for {{ genre }}</h1>
+
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <li>{{ book }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Sorry, no recommendations available for "{{ genre }}".</p>
+    {% endif %}
+
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>

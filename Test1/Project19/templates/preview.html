@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Email Preview{% endblock %}
+
+{% block content %}
+    <h2>{{ title }}</h2>
+    <hr>
+    <div style="white-space: pre-wrap; font-family: Arial, sans-serif; font-size: 1.1em; padding: 10px; border: 1px solid #ccc; border-radius: 6px; background: #fff;">
+        {{ body }}
+    </div>
+    <br>
+    <a href="{{ url_for('home') }}">Back to form</a>
+{% endblock %}

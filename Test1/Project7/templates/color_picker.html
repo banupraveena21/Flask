@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Color Picker Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f9f9f9;
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 18px;
+            font-size: 16px;
+            margin-left: 10px;
+            border: none;
+            background: #3498db;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #bedbee;
+        }
+        .color-preview {
+            margin: 30px auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Color Picker Preview</h1>
+    <form method="POST">
+        <input type="text" name="color" placeholder="Enter color name or hex code" value="{{ color }}">
+        <button type="submit">Show Color</button>
+    </form>
+
+    <div
+        class="color-preview"
+        style="background-color: {{ color }};">
+    </div>
+</body>
+</html>

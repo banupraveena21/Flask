@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+    <h1>About Us</h1>
+    <img src="{{ url_for('static', filename='images/about.jpg') }}" alt="About Us" class="page-image">
+    <p>Welcome to our company! We are dedicated to delivering the best services.</p>
+{% endblock %}

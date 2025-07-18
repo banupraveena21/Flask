@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz Question {{ question_id }}{% endblock %}
+
+{% block content %}
+<div class="quiz-card">
+    <h2>Question {{ question_id }}</h2>
+    <p>{{ question.text }}</p>
+    <ul class="options">
+        {% for option in question.options %}
+            <li>{{ option }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

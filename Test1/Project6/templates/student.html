@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Student Introduction - {{ name }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Student Introduction</h1>
+    <h2>{{ name | capitalize }}</h2>
+    <p><strong>Age:</strong> {{ age }}</p>
+    <p><strong>Course:</strong> {{ course }}</p>
+</div>
+{% endblock %}

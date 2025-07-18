@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Student Intro App{% endblock %}
+
+{% block content %}
+<div class="card" style="text-align:center;">
+    <h1>Welcome to the Student Introduction App</h1>
+    <p>To view a student introduction, try this link:</p>
+    <a href="{{ url_for('student', name='banu', age=22, course='Python') }}">
+        /student/banu?age=22&course=Python
+    </a>
+</div>
+{% endblock %}

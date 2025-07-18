@@ -1,0 +1,32 @@
+body.calculator-container {
+    font-family: Arial, sans-serif;
+    background-color: rgb(208, 223, 185);
+    padding: 50px;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+   
+}
+
+input, select, button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: red;
+}

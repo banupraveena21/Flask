@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Survey{% endblock %}
+
+{% block content %}
+    <h2>Survey: What's your favorite programming language?</h2>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="{{ url_for('survey') }}">
+        <label><input type="radio" name="vote" value="Python"> Python</label><br>
+        <label><input type="radio" name="vote" value="JavaScript"> JavaScript</label><br>
+        <label><input type="radio" name="vote" value="Java"> Java</label><br>
+        <label><input type="radio" name="vote" value="C++"> C++</label><br><br>
+        <button type="submit">Submit Vote</button>
+    </form>
+{% endblock %}

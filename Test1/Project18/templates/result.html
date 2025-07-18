@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Poll Result{% endblock %}
+
+{% block content %}
+    <h2>Poll Result</h2>
+    <p>Your choice: <span class="highlight {{ choice | lower }}">{{ choice }}</span></p>
+    <p><a href="{{ url_for('home') }}">Back to Poll</a></p>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h2>Welcome to the Survey App</h2>
+    <p>Click below to participate in our programming language survey.</p>
+    <a href="{{ url_for('survey') }}"><button>Go to Survey</button></a>
+{% endblock %}

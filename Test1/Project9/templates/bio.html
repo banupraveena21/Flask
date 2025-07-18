@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ name }}'s Bio{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>{{ name }} ({{ age }})</h2>
+    <h4>Hobbies:</h4>
+    {% if hobbies %}
+        <ul>
+            {% for hobby in hobbies %}
+                <li>{{ hobby }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hobbies listed.</p>
+    {% endif %}
+    <br>
+    <a href="{{ url_for('index') }}">Go Back</a>
+</div>
+{% endblock %}

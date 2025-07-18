@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ city }} Weather</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            background: #4da39c;
+            padding: 50px;
+        }
+        .weather-card {
+            display: inline-block;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .weather-card img {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="weather-card">
+        <h1>Weather in {{ city }}</h1>
+        <h2>{{ temp }}° {{ 'C' if unit == 'celsius' else 'F' }}</h2>
+        <p>Condition: {{ condition.title() }}</p>
+
+        {% if condition == 'sunny' %}
+            <img src="{{ url_for('static', filename='images/sunny.png') }}" alt="Sunny">
+        {% elif condition == 'cloudy' %}
+            <img src="{{ url_for('static', filename='images/cloudy.png') }}" alt="Cloudy">
+        {% elif condition == 'rain' %}
+            <img src="{{ url_for('static', filename='images/rain.png') }}" alt="Rain">
+        {% elif condition == 'snow' %}
+            <img src="{{ url_for('static', filename='images/snow.png') }}" alt="Snow">
+        {% else %}
+            <p>No icon available</p>
+        {% endif %}
+    </div>
+</body>
+</html>

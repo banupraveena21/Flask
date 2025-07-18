@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h2>Welcome!</h2>
+    <p>Try greeting by specifying the hour in the URL, for example:</p>
+    <ul>
+        <li><a href="{{ url_for('greet') }}?hour=9">/greet?hour=9</a></li>
+        <li><a href="{{ url_for('greet') }}?hour=15">/greet?hour=15</a></li>
+        <li><a href="{{ url_for('greet') }}?hour=22">/greet?hour=22</a></li>
+    </ul>
+{% endblock %}

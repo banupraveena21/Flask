@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Thank You{% endblock %}
+
+{% block content %}
+    <h2>Thank You for Voting!</h2>
+    {% if vote == 'Python' %}
+        <p>Great choice! Python is loved by many developers.</p>
+    {% elif vote == 'JavaScript' %}
+        <p>Awesome! JavaScript powers the web.</p>
+    {% elif vote == 'Java' %}
+        <p>Java is a classic, great for enterprise apps!</p>
+    {% elif vote == 'C++' %}
+        <p>C++ is powerful for system-level programming!</p>
+    {% else %}
+        <p>You voted for: {{ vote }}</p>
+    {% endif %}
+    <p><a href="{{ url_for('survey') }}">Back to Survey</a></p>
+{% endblock %}

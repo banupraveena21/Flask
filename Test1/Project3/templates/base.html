@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Collector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('feedback_form') }}">Home</a> |
+        <a href="{{ url_for('all_feedback') }}">View Feedback</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

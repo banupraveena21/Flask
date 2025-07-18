@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Home - News Reader{% endblock %}
+
+{% block content %}
+    <h2>News Categories</h2>
+    <ul>
+        {% for category in categories %}
+            <li><a href="{{ url_for('news', category=category) }}">{{ category.title() }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

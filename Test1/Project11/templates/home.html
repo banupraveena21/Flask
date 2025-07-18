@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz Home{% endblock %}
+
+{% block content %}
+<div class="quiz-card">
+    <h2>Welcome to the Quiz Preview</h2>
+    <p>Select a question to preview:</p>
+    <ul class="options">
+        {% for qid, q in questions.items() %}
+            <li><a href="{{ url_for('quiz', question_id=qid) }}">Question {{ qid }}: {{ q.text }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

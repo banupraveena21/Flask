@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ name }}'s Resume{% endblock %}
+
+{% block content %}
+    <section class="resume-container">
+        <h2>{{ name }}</h2>
+        <p><strong>Email:</strong> {{ email }}</p>
+        <h3>Experience</h3>
+        <p style="white-space: pre-wrap;">{{ experience }}</p>
+    </section>
+
+    <p><a href="{{ url_for('resume') }}">Back to Form</a></p>
+    <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+{% endblock %}

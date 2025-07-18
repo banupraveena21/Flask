@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Email Form{% endblock %}
+
+{% block content %}
+    <form method="POST" action="{{ url_for('preview') }}">
+        <label>
+            Email Title:<br>
+            <input type="text" name="title" required style="width: 100%; padding: 8px; font-size: 1.1em;">
+        </label>
+        <br><br>
+        <label>
+            Email Body:<br>
+            <textarea name="body" rows="10" required style="width: 100%; padding: 8px; font-size: 1em;"></textarea>
+        </label>
+        <br><br>
+        <button type="submit">Preview Email</button>
+    </form>
+{% endblock %}

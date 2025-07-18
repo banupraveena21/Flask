@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>
+        {% if lang == 'en' %}
+            Hello, {{ name }}!
+        {% elif lang == 'es' %}
+            ¡Hola, {{ name }}!
+        {% elif lang == 'fr' %}
+            Bonjour, {{ name }}!
+        {% elif lang == 'de' %}
+            Hallo, {{ name }}!
+        {% elif lang == 'jp' %}
+            こんにちは、{{ name }}さん！
+        {% else %}
+            Hello, {{ name }}! (Unknown language)
+        {% endif %}
+    </h1>
+{% endblock %}

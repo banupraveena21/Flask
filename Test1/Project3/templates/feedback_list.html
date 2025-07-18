@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>All Feedback</h1>
+    {% if feedback %}
+        <ul>
+            {% for item in feedback %}
+                <li><strong>{{ item.name }}:</strong> {{ item.message }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No feedback submitted yet.</p>
+    {% endif %}
+{% endblock %}
