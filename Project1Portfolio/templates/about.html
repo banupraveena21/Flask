@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}About Me{% endblock %}
+
+{% block content %}
+<h1 style="color: brown;">About Me</h1>
+<p >I'm a passionate and dedicated web developer fresher with a strong foundation in building responsive and user-friendly websites. <br>
+    I enjoy transforming creative ideas into functional digital experiences using technologies like HTML, CSS, JavaScript, and <br>
+    frameworks such as React and Flask.Though I am at the start of my professional journey, I am a fast learner, highly motivated, <br>
+    and constantly exploring new tools and best practices to sharpen my skills. I'm excited to contribute my creativity, <br>
+    problem-solving skills, and enthusiasm to real-world projects and collaborate with teams to build meaningful web applications.</p>
+
+<h2 style="color: brown;">🔧 Skills</h2>
+<p style="color: rgb(63, 6, 6);">
+  <strong>Frontend:</strong> HTML, CSS, JavaScript, Bootstrap<br>
+  <strong>Backend:</strong> Python (Flask), Node.js (basic), React<br>
+  <strong>Tools:</strong> Git, GitHub, VS Code
+</p>
+
+<p>I love solving problems and continuously learning new technologies to improve my skills and deliver high-quality projects.</p>
+
+<p>Feel free to check out my projects or <a href="{{ url_for('contact') }}">get in touch</a>!</p>
+
+{% endblock %}

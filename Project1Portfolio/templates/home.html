@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1 style="color: brown;">Welcome to My Portfolio</h1>
+<p> I'm a passionate and motivated Web Developer Fresher eager to kickstart my career in the world of web development. <br> 
+    I specialize in building responsive, user-friendly websites using HTML, CSS, JavaScript, and have hands-on experience <br>
+    with frameworks like React and Flask. I'm always excited to learn, grow, and contribute to real-world web solutions.</p>
+
+<h2 style="color: brown;">Featured Projects</h2>
+<ul>
+    {% for project in projects %}
+    <li style="list-style: none;">
+        <a href="{{ url_for('project_detail', slug=project['slug']) }}">{{ project['title'] }}</a>
+        - {{ project['description'] }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,14 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: rgb(247, 247, 170);
+    text-align: center;
+}
+
+nav a {
+    margin-right: 15px;
+}
+
+ul li a{
+    color: chocolate;
+ }
