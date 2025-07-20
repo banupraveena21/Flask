@@ -1,0 +1,26 @@
+[
+    {   
+        "slug": "toysupplywebsite",
+        "url": "https://banupraveena21.github.io/banu/prototype3/toysupplywebsite",
+        "title": "Toy Website",
+        "description": "To sell the Toys Online",
+        "tags": ["HTML", "JavaScript"],
+        "image_url": "/static/images/wholesaletoy.png"
+    },
+    {   
+        "slug": "petsupplywebsite",
+        "url": "https://banupraveena21.github.io/banu/prototype1/petsupply",
+        "title": "Pet Supply Website",
+        "description": "To Sell animals and How to take care",
+        "tags": ["HTML", "JavaScript"],
+        "image_url": "/static/images/petsupply.png"
+    },
+    {
+        "slug": "hotelbookingwebsite",
+        "url": "https://banupraveena21.github.io/banu/prototype2/hotelbooking",
+        "title": "Hotel/Resort Booking Website",
+        "description": "To book rooms in Hotel",
+        "tags": ["HTML", "JavaScript"],
+        "image_url": "/static/images/hotelbooking.png"
+    }
+]
