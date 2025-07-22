@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background: palevioletred;
+}
+
+.container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-field.error {
+    border-color: red;
+}
+
+.checkbox-container {
+    margin: 10px 0;
+}
+
+.error-msg {
+    color: red;
+    font-size: 0.9em;
+    margin-top: -8px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.btn {
+    padding: 10px;
+    width: 100%;
+    background-color: #99078d;
+    border: none;
+    color: white;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+.flash.success {
+    background: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-left: 6px solid green;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}

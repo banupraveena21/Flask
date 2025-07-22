@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: pink;
+}
+
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+input[type="number"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input.error, select.error, textarea.error {
+    border-color: red;
+}
+
+.error-msg {
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.error-box {
+    background-color: #ffe0e0;
+    border: 1px solid red;
+    color: #900;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.flash.success {
+    background-color: #d4edda;
+    border-left: 5px solid #28a745;
+    padding: 12px;
+    color: #155724;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Booking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Book an Appointment</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            <p class="flash {{ category }}">{{ message }}</p>
+        {% endfor %}
+    {% endwith %}
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+            {{ form.name.label }}
+            {{ form.name(class_='form-control' + (' invalid' if form.name.errors else '')) }}
+            {% for error in form.name.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.email.label }}
+            {{ form.email(class_='form-control' + (' invalid' if form.email.errors else '')) }}
+            {% for error in form.email.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.date.label }}
+            {{ form.date(class_='form-control' + (' invalid' if form.date.errors else '')) }}
+            {% for error in form.date.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.time.label }}
+            {{ form.time(class_='form-control' + (' invalid' if form.time.errors else '')) }}
+            {% for error in form.time.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.purpose.label }}
+            {{ form.purpose(class_='form-control' + (' invalid' if form.purpose.errors else '')) }}
+            {% for error in form.purpose.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        {{ form.submit(class_='btn') }}
+    </form>
+</div>
+</body>
+</html>

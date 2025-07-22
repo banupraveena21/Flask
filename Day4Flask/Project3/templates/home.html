@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to Our Website</h1>
+    <p>Please choose an option:</p>
+    <a class="btn" href="{{ url_for('register') }}">Register</a>
+    <a class="btn" href="{{ url_for('subscribe') }}">Subscribe</a>
+    <a class="btn" href="{{ url_for('feedback') }}">Feedback</a>
+</div>
+</body>
+</html>

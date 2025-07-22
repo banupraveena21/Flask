@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Product Survey</h2>
+
+    {% if errors %}
+      <div class="error-box">
+          Please fix the errors below before submitting the form.
+      </div>
+    {% endif %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" novalidate>
+        <label>Age:</label>
+        <input type="number" name="age" value="{{ values.get('age', '') }}" class="{% if errors.get('age') %}error{% endif %}">
+        {% if errors.get('age') %}<span class="error-msg">{{ errors['age'] }}</span>{% endif %}
+
+        <label>Gender:</label>
+        <select name="gender" class="{% if errors.get('gender') %}error{% endif %}">
+            <option value="">-- Select Gender --</option>
+            {% for g in genders %}
+                <option value="{{ g }}" {% if values.get('gender') == g %}selected{% endif %}>{{ g }}</option>
+            {% endfor %}
+        </select>
+        {% if errors.get('gender') %}<span class="error-msg">{{ errors['gender'] }}</span>{% endif %}
+
+        <label>Favorite Product:</label>
+        <select name="product" class="{% if errors.get('product') %}error{% endif %}">
+            <option value="">-- Select Product --</option>
+            {% for p in products %}
+                <option value="{{ p }}" {% if values.get('product') == p %}selected{% endif %}>{{ p }}</option>
+            {% endfor %}
+        </select>
+        {% if errors.get('product') %}<span class="error-msg">{{ errors['product'] }}</span>{% endif %}
+
+        <label>Feedback:</label>
+        <textarea name="feedback" rows="4" class="{% if errors.get('feedback') %}error{% endif %}">{{ values.get('feedback', '') }}</textarea>
+        {% if errors.get('feedback') %}<span class="error-msg">{{ errors['feedback'] }}</span>{% endif %}
+
+        <button type="submit">Submit Survey</button>
+    </form>
+</div>
+</body>
+</html>

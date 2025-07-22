@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    background:radial-gradient(blue, lightblue);
+}
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"], input[type="email"], input[type="url"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+input.error {
+    border-color: red;
+}
+
+.error-msg {
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.flash.success {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn{
+    background-color: rgb(236, 179, 109);
+    border: none;
+    font-size: 20px;
+}

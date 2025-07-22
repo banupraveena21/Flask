@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    background:linear-gradient(lightpink,pink);
+}
+
+.container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"], input[type="email"], input[type="number"], select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+input.error, select.error {
+    border-color: red;
+}
+
+.error-msg {
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.flash.success {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+button{
+    background-color: bisque;
+    font-size: 20px;
+    border-radius: 10px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Reset</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Reset Your Password</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" novalidate>
+        {{ form.hidden_tag() }}
+
+        <label>{{ form.email.label }}</label>
+        {{ form.email(class_='input-field' + (' error' if form.email.errors else '')) }}
+        {% for err in form.email.errors %}
+            <span class="error-msg">{{ err }}</span>
+        {% endfor %}
+
+        <label>{{ form.new_password.label }}</label>
+        {{ form.new_password(class_='input-field' + (' error' if form.new_password.errors else '')) }}
+        {% for err in form.new_password.errors %}
+            <span class="error-msg">{{ err }}</span>
+        {% endfor %}
+
+        <label>{{ form.confirm_password.label }}</label>
+        {{ form.confirm_password(class_='input-field' + (' error' if form.confirm_password.errors else '')) }}
+        {% for err in form.confirm_password.errors %}
+            <span class="error-msg">{{ err }}</span>
+        {% endfor %}
+
+        {{ form.submit(class_='btn') }}
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donation Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Make a Donation</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <label>{{ form.name.label }}</label>
+        {{ form.name(class_='input-field' + (' error' if form.name.errors else '')) }}
+        {% for err in form.name.errors %}
+            <span class="error-msg">{{ err }}</span>
+        {% endfor %}
+
+        <label>{{ form.email.label }}</label>
+        {{ form.email(class_='input-field' + (' error' if form.email.errors else '')) }}
+        {% for err in form.email.errors %}
+            <span class="error-msg">{{ err }}</span>
+        {% endfor %}
+
+        <label>{{ form.amount.label }}</label>
+        {{ form.amount(class_='input-field' + (' error' if form.amount.errors else '')) }}
+        {% for err in form.amount.errors %}
+            <span class="error-msg">{{ err }}</span>
+        {% endfor %}
+
+        <label>{{ form.cause.label }}</label>
+        {{ form.cause(class_='input-field' + (' error' if form.cause.errors else '')) }}
+        {% for err in form.cause.errors %}
+            <span class="error-msg">{{ err }}</span>
+        {% endfor %}
+
+        {{ form.submit(class_='btn') }}
+    </form>
+</div>
+</body>
+</html>

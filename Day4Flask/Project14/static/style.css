@@ -1,0 +1,43 @@
+body {
+    font-family: sans-serif;
+    background-color: lightgreen;
+}
+
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input[type="text"], input[type="email"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.error {
+    border-color: red;
+}
+
+.error-msg {
+    color: red;
+    font-size: 0.9em;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.flash.success {
+    background-color: #d4edda;
+    padding: 10px;
+    border-left: 6px solid green;
+    margin-bottom: 20px;
+    color: #155724;
+}

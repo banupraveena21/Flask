@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Support Ticket</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Customer Support Ticket</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" novalidate>
+        <label>Name:</label>
+        <input type="text" name="name" value="{{ values.get('name', '') }}"
+               class="{% if errors.get('name') %}error{% endif %}">
+        {% if errors.get('name') %}<span class="error-msg">{{ errors['name'] }}</span>{% endif %}
+
+        <label>Email:</label>
+        <input type="email" name="email" value="{{ values.get('email', '') }}"
+               class="{% if errors.get('email') %}error{% endif %}">
+        {% if errors.get('email') %}<span class="error-msg">{{ errors['email'] }}</span>{% endif %}
+
+        <label>Issue Category:</label>
+        <select name="category" class="{% if errors.get('category') %}error{% endif %}">
+            <option value="">-- Select Category --</option>
+            {% for cat in categories %}
+                <option value="{{ cat }}" {% if values.get('category') == cat %}selected{% endif %}>{{ cat }}</option>
+            {% endfor %}
+        </select>
+        {% if errors.get('category') %}<span class="error-msg">{{ errors['category'] }}</span>{% endif %}
+
+        <label>Description:</label>
+        <textarea name="description" rows="5" class="{% if errors.get('description') %}error{% endif %}">{{ values.get('description', '') }}</textarea>
+        {% if errors.get('description') %}<span class="error-msg">{{ errors['description'] }}</span>{% endif %}
+
+        <button type="submit">Submit Ticket</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!--3. Show submitted data back on a response page -->
+
+{% extends 'base.html' %}
+{% block content %}
+<h2>Submission Successful</h2>
+<ul>
+    <li>Name: {{ form.name.data }}</li>
+    <li>Email: {{ form.email.data }}</li>
+    <li>Gender: {{ form.gender.data }}</li>
+    <li>Country: {{ form.country.data }}</li>
+    <li>Age: {{ form.age.data }}</li>
+    <li>Message: {{ form.message.data }}</li>
+</ul>
+<a href="{{ url_for('index') }}">Back to form</a>
+{% endblock %}

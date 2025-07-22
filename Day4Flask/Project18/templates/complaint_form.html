@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complaint Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Complaint Registration</h2>
+
+    {% if form.errors %}
+        <div class="error-box">
+            <strong>Please fix the following errors:</strong>
+            <ul>
+                {% for field_errors in form.errors.values() %}
+                    {% for error in field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <label>{{ form.name.label }}</label>
+        {{ form.name(class_="input-field") }}
+
+        <label>{{ form.email.label }}</label>
+        {{ form.email(class_="input-field") }}
+
+        <label>{{ form.category.label }}</label>
+        {{ form.category(class_="input-field") }}
+
+        <label>{{ form.complaint.label }}</label>
+        {{ form.complaint(class_="input-field", rows=5) }}
+
+        {{ form.submit(class_="btn") }}
+    </form>
+</div>
+</body>
+</html>

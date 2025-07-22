@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Room Booking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Hotel Room Booking Form</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" novalidate>
+        <label>Full Name:</label><br>
+        <input type="text" name="full_name" value="{{ values.get('full_name', '') }}"
+               class="{% if errors.get('full_name') %}error{% endif %}">
+        {% if errors.get('full_name') %}<span class="error-msg">{{ errors['full_name'] }}</span>{% endif %}
+
+        <label>Email:</label><br>
+        <input type="email" name="email" value="{{ values.get('email', '') }}"
+               class="{% if errors.get('email') %}error{% endif %}">
+        {% if errors.get('email') %}<span class="error-msg">{{ errors['email'] }}</span>{% endif %}
+
+        <label>Room Type:</label><br>
+        <select name="room_type" class="{% if errors.get('room_type') %}error{% endif %}">
+            <option value="">-- Select Room Type --</option>
+            {% for rt in room_types %}
+                <option value="{{ rt }}" {% if values.get('room_type') == rt %}selected{% endif %}>{{ rt }}</option>
+            {% endfor %}
+        </select>
+        {% if errors.get('room_type') %}<span class="error-msg">{{ errors['room_type'] }}</span>{% endif %}
+
+        <label>Nights:</label><br>
+        <input type="number" name="nights" min="1" value="{{ values.get('nights', '') }}"
+               class="{% if errors.get('nights') %}error{% endif %}">
+        {% if errors.get('nights') %}<span class="error-msg">{{ errors['nights'] }}</span>{% endif %}
+
+        <button type="submit">Book Now</button>
+    </form>
+</div>
+</body>
+</html>

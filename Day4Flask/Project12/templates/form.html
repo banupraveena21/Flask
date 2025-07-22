@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Job Application Form</h2>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST" novalidate>
+            <label>Name:</label><br>
+            <input type="text" name="name" value="{{ values.get('name', '') }}" class="{% if errors.get('name') %}error{% endif %}">
+            {% if errors.get('name') %}<span class="error-msg">{{ errors['name'] }}</span>{% endif %}
+            <br>
+
+            <label>Email:</label><br>
+            <input type="email" name="email" value="{{ values.get('email', '') }}" class="{% if errors.get('email') %}error{% endif %}">
+            {% if errors.get('email') %}<span class="error-msg">{{ errors['email'] }}</span>{% endif %}
+            <br>
+
+            <label>Resume URL:</label><br>
+            <input type="url" name="resume_url" value="{{ values.get('resume_url', '') }}" class="{% if errors.get('resume_url') %}error{% endif %}">
+            {% if errors.get('resume_url') %}<span class="error-msg">{{ errors['resume_url'] }}</span>{% endif %}
+            <br>
+
+            <label>Experience (years):</label><br>
+            <input type="number" name="experience" value="{{ values.get('experience', '') }}" class="{% if errors.get('experience') %}error{% endif %}">
+            {% if errors.get('experience') %}<span class="error-msg">{{ errors['experience'] }}</span>{% endif %}
+            <br>
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

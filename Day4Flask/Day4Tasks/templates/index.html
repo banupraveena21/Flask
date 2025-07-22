@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>User Input Form</h2>
+
+{% if form.errors %}
+<div class="error-box">
+    <strong>{{ form.errors|length }} error(s) found:</strong>
+    <ul>
+        {% for field, errors in form.errors.items() %}
+            {% for err in errors %}
+                <li><b>{{ field.capitalize() }}:</b> {{ err }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    {% for field in form if field.name != 'submit' %}
+        <label>{{ field.label }}</label>
+        {{ field(class_='input' + (' error' if field.errors else '')) }}
+        {% for error in field.errors %}
+            <div class="error-msg">{{ error }}</div>
+        {% endfor %}
+    {% endfor %}
+
+    {{ form.submit(class_='btn') }}
+</form>
+{% endblock %}

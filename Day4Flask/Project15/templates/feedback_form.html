@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Feedback Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Course Feedback</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" novalidate>
+        <label>Name:</label>
+        <input type="text" name="name" value="{{ values.get('name', '') }}"
+               class="{% if errors.get('name') %}error{% endif %}">
+        {% if errors.get('name') %}<span class="error-msg">{{ errors['name'] }}</span>{% endif %}
+
+        <label>Email:</label>
+        <input type="email" name="email" value="{{ values.get('email', '') }}"
+               class="{% if errors.get('email') %}error{% endif %}">
+        {% if errors.get('email') %}<span class="error-msg">{{ errors['email'] }}</span>{% endif %}
+
+        <label>Course:</label>
+        <input type="text" name="course" value="{{ values.get('course', '') }}"
+               class="{% if errors.get('course') %}error{% endif %}">
+        {% if errors.get('course') %}<span class="error-msg">{{ errors['course'] }}</span>{% endif %}
+
+        <label>Rating (1-10):</label>
+        <input type="number" name="rating" min="1" max="10" value="{{ values.get('rating', '') }}"
+               class="{% if errors.get('rating') %}error{% endif %}">
+        {% if errors.get('rating') %}<span class="error-msg">{{ errors['rating'] }}</span>{% endif %}
+
+        <label>Suggestion (optional):</label>
+        <textarea name="suggestion" rows="4">{{ values.get('suggestion', '') }}</textarea>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+</div>
+</body>
+</html>
