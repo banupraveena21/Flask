@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Update Appointment</h2>
+<form method="POST">
+    <label>Date:</label><br>
+    <input type="date" name="date" value="{{ appointment.date }}" required><br><br>
+
+    <label>Time:</label><br>
+    <input type="time" name="time" value="{{ appointment.time }}" required><br><br>
+
+    <label>Status:</label><br>
+    <select name="status">
+        <option value="Booked" {% if appointment.status == 'Booked' %}selected{% endif %}>Booked</option>
+        <option value="Cancelled" {% if appointment.status == 'Cancelled' %}selected{% endif %}>Cancelled</option>
+        <option value="Completed" {% if appointment.status == 'Completed' %}selected{% endif %}>Completed</option>
+    </select><br><br>
+
+    <button type="submit">Update</button>
+</form>
+{% endblock %}

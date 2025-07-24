@@ -1,0 +1,28 @@
+<h2>Welcome {{ current_user.username }}</h2>
+
+<form method="POST">
+    <input name="limit" placeholder="Set Monthly Limit" required>
+    <button type="submit">Save Limit</button>
+</form>
+
+<p>Total Expenses: ₹{{ total }}</p>
+<p>Limit: ₹{{ limit }}</p>
+
+<a href="{{ url_for('add_expense') }}">➕ Add Expense</a> |
+<a href="{{ url_for('logout') }}">🔒 Logout</a>
+
+<ul>
+  {% for e in expenses %}
+    <li>{{ e.category }}: ₹{{ e.amount }}</li>
+  {% endfor %}
+</ul>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul>
+    {% for category, message in messages %}
+      <li style="color: {% if category == 'error' %}red{% else %}green{% endif %};">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}

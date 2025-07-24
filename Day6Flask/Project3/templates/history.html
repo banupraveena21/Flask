@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Workout History</h2>
+<ul>
+{% for w in workouts %}
+    <li>{{ w.date.strftime('%Y-%m-%d') }} | {{ w.type }} | {{ w.steps }} steps | {{ w.duration }} hrs</li>
+{% endfor %}
+</ul>
+{% endblock %}

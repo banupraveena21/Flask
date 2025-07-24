@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Submit a Review</h2>
+<form method="post">
+    <input name="movie" placeholder="Movie Title" required>
+    <input name="rating" type="number" min="1" max="5" required>
+    <textarea name="comment" placeholder="Your comments..." required></textarea>
+    <button type="submit">Submit Review</button>
+</form>
+{% endblock %}

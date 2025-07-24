@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Available Books</h2>
+<ul>
+    {% for book in books %}
+    <li>{{ book.title }} by {{ book.author }} -
+        <a href="{{ url_for('borrow', book_id=book.id) }}">Borrow</a>
+    </li>
+    {% else %}
+    <li>No books available</li>
+    {% endfor %}
+</ul>
+
+{% if recent %}
+<h3>Recently Borrowed</h3>
+<ul>
+    {% for title in recent %}
+    <li>{{ title }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

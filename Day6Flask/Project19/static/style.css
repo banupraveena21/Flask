@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    background-color: #fafafa;
+}
+
+nav a {
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 0 5px #ccc;
+}
+
+button {
+    margin-top: 5px;
+    cursor: pointer;
+}

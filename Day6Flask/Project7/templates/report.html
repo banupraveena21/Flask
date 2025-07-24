@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Report a Bug</h2>
+<form method="post">
+    <input name="title" placeholder="Bug Title" required>
+    <textarea name="description" placeholder="Bug Description" required></textarea>
+    <button type="submit">Submit Bug</button>
+</form>
+{% endblock %}

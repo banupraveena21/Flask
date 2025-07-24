@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Travel Plan</h2>
+<form method="POST">
+    <label>Place:</label><br>
+    <input type="text" name="place" required><br><br>
+
+    <label>Date (YYYY-MM-DD):</label><br>
+    <input type="date" name="date" required><br><br>
+
+    <label>Reason:</label><br>
+    <input type="text" name="reason"><br><br>
+
+    <button type="submit">Add Plan</button>
+</form>
+{% endblock %}

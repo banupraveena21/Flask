@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Apply for a Job</h2>
+<form method="POST">
+    <label>Job Title:</label><br>
+    <input type="text" name="job_title" required><br><br>
+
+    <label>Your Resume (Text):</label><br>
+    <textarea name="resume_text" rows="6" cols="50" required></textarea><br><br>
+
+    <button type="submit">Submit Application</button>
+</form>
+{% endblock %}

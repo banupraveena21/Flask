@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>All Borrowed Books</h2>
+<table>
+    <thead>
+        <tr><th>User</th><th>Book</th><th>Date Borrowed</th></tr>
+    </thead>
+    <tbody>
+    {% for b in borrowings %}
+        <tr>
+            <td>{{ b.user.username }}</td>
+            <td>{{ b.book.title }}</td>
+            <td>{{ b.borrow_date.strftime('%Y-%m-%d %H:%M') }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

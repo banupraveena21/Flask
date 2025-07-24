@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Last Quiz Result</h2>
+{% if result %}
+  <p>Score: {{ result.score }} / {{ result.total }}</p>
+{% else %}
+  <p>No quiz completed yet.</p>
+{% endif %}
+{% endblock %}

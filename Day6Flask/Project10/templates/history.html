@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Enrollment History</h2>
+<ul>
+    {% for e in enrollments %}
+    <li>{{ e.course.name }}</li>
+    {% else %}
+    <p>No courses enrolled yet.</p>
+    {% endfor %}
+</ul>
+{% endblock %}

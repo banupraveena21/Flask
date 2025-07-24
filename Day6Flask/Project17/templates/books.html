@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>My Reading Progress</h2>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Pages Read</th>
+        <th>Total Pages</th>
+        <th>Action</th>
+    </tr>
+    {% for book in books %}
+    <tr class="{% if book.id == last_book_id %}highlight{% endif %}">
+        <td>{{ book.title }}</td>
+        <td>{{ book.pages_read }}</td>
+        <td>{{ book.total_pages }}</td>
+        <td><a href="{{ url_for('update', book_id=book.id) }}">Update</a></td>
+    </tr>
+    {% else %}
+    <tr><td colspan="4">No books added yet.</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}

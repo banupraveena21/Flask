@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Update RSVP</h2>
+<form method="POST">
+    <select name="status">
+        <option value="Yes" {% if rsvp.status == "Yes" %}selected{% endif %}>Yes</option>
+        <option value="No" {% if rsvp.status == "No" %}selected{% endif %}>No</option>
+    </select>
+    <button>Update</button>
+</form>
+{% endblock %}

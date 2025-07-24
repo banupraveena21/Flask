@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>My Journal Entries</h2>
+<a href="{{ url_for('main.add_entry') }}">+ Add New Entry</a>
+<ul>
+  {% for entry in entries %}
+    <li>
+      <strong>{{ entry.title }}</strong><br>
+      <pre>{{ entry.content }}</pre>
+      <a href="{{ url_for('main.update_entry', entry_id=entry.id) }}">Edit</a>
+      <form method="POST" action="{{ url_for('main.delete_entry', entry_id=entry.id) }}" style="display:inline;">
+        <button onclick="return confirm('Delete this entry?');">Delete</button>
+      </form>
+    </li>
+  {% else %}
+    <p>No entries yet.</p>
+  {% endfor %}
+</ul>
+{% endblock %}

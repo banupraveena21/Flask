@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Submitted Bugs</h2>
+{% if last_title %}
+<p><em>Last submitted bug: "{{ last_title }}"</em></p>
+{% endif %}
+
+{% if bugs %}
+    <ul class="bug-list">
+    {% for bug in bugs %}
+        <li>
+            <span class="bug-title">{{ bug.title }}</span><br>
+            <span class="bug-desc">{{ bug.description }}</span>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No bugs submitted yet.</p>
+{% endif %}
+{% endblock %}

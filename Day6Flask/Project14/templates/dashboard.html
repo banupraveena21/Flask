@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Travel Plans ({{ total }})</h2>
+
+{% if last %}
+<p><strong>Last searched country:</strong> {{ last }}</p>
+{% endif %}
+
+<table>
+  <tr>
+    <th>Place</th>
+    <th>Date</th>
+    <th>Reason</th>
+  </tr>
+  {% for plan in plans %}
+  <tr>
+    <td>{{ plan.place }}</td>
+    <td>{{ plan.date }}</td>
+    <td>{{ plan.reason }}</td>
+  </tr>
+  {% else %}
+  <tr><td colspan="3">No travel plans yet.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

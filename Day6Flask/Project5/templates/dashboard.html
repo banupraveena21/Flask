@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Quiz Dashboard</h2>
+{% if scores %}
+  <ul>
+    {% for result in scores %}
+      <li>Score: {{ result.score }}/{{ result.total }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No quiz attempts yet.</p>
+{% endif %}
+{% endblock %}

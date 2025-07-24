@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Movie Reviews</h2>
+{% if reviews %}
+    <ul>
+    {% for r in reviews %}
+        <li>
+            <strong>{{ r.movie }}</strong> ({{ r.rating }}/5)<br>
+            "{{ r.comment }}" — by {{ r.user.username }}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No reviews yet.</p>
+{% endif %}
+{% endblock %}

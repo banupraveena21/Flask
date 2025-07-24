@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Update Progress for "{{ book.title }}"</h2>
+<form method="POST">
+    <input name="pages_read" type="number" value="{{ book.pages_read }}" required><br>
+    <button>Update</button>
+</form>
+{% endblock %}
