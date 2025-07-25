@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fetch API Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="p-4">
+
+  <h1>Fetch API Demo</h1>
+
+  <!-- Task 2.1 & 2.2: Fetch time button -->
+  <button id="btnTime" class="btn btn-primary mb-3">Get Server Time</button>
+  <div id="timeDisplay"></div>
+
+  <!-- Task 2.3: Show user list on load -->
+  <h2>Users</h2>
+  <table class="table" id="usersTable">
+    <thead><tr><th>ID</th><th>Name</th><th>Email</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- Task 2.4: Load more products -->
+  <h2>Products</h2>
+  <div class="row" id="productsGrid"></div>
+  <button id="btnLoadMore" class="btn btn-success mt-2">Load More Products</button>
+
+  <!-- Task 2.7: Show joke (random) -->
+  <div id="jokeAlert" class="alert alert-info mt-4" style="display:none;"></div>
+
+  <!-- Task 2.8: Submit form via fetch -->
+  <h2>Submit Form</h2>
+  <form id="myForm" class="mb-3">
+    <input type="text" name="data" placeholder="Enter something" class="form-control mb-2" required />
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div id="formResponse"></div>
+
+  <!-- Loading spinner -->
+  <div id="spinner" class="spinner-border text-primary" role="status" style="display:none;">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+<script>
+  // Task 2.1 & 2.2: Fetch server time
+  document.getElementById('btnTime').addEventListener('click', () => {
+    const timeDisplay = document.getElementById('timeDisplay');
+    timeDisplay.textContent = "Loading...";
+    fetch('/api/time')
+      .then(res => res.json())
+      .then(data => {
+        timeDisplay.textContent = `Server time: ${data.time}`;
+      });
+  });
+
+  // Task 2.3: Load users on page load
+  let userPage = 1;
+  function loadUsers(page=1) {
+    fetch(`/api/users?page=${page}&limit=3`)
+      .then(res => res.json())
+      .then(data => {
+        const tbody = document.querySelector('#usersTable tbody');
+        data.users.forEach(user => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${user.id}</td><td>${user.name}</td><td>${user.email}</td>`;
+          tbody.appendChild(tr);
+        });
+      });
+  }
+  loadUsers();
+
+  // Task 2.4: Load more products button
+  let productPage = 1;
+  const productsGrid = document.getElementById('productsGrid');
+  document.getElementById('btnLoadMore').addEventListener('click', () => {
+    // Show spinner
+    document.getElementById('spinner').style.display = 'inline-block';
+    fetch(`/api/products`)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('spinner').style.display = 'none';
+        // Show all products (for simplicity)
+        data.products.forEach(prod => {
+          const card = document.createElement('div');
+          card.className = "col-md-3 mb-3";
+          card.innerHTML = `
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">${prod.name}</h5>
+                <p class="card-text">Price: $${prod.price.toFixed(2)}</p>
+                <p class="card-text">Stock: ${prod.in_stock ? 'Available' : 'Out of stock'}</p>
+              </div>
+            </div>`;
+          productsGrid.appendChild(card);
+        });
+      });
+  });
+
+  // Task 2.7: Fetch joke from /api/random and show alert
+  fetch('/api/random')
+    .then(res => res.json())
+    .then(data => {
+      const jokeAlert = document.getElementById('jokeAlert');
+      jokeAlert.textContent = data.random;
+      jokeAlert.style.display = 'block';
+    });
+
+  // Task 2.8 & 2.5: Submit form using fetch POST
+  document.getElementById('myForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    fetch('/api/submit', { method: 'POST', body: formData })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('formResponse').textContent = 'Success: ' + JSON.stringify(data);
+      })
+      .catch(() => {
+        document.getElementById('formResponse').textContent = 'Error submitting form.';
+      });
+  });
+
+  // Task 2.12: Poll /api/time every 5 seconds and update timeDisplay
+  setInterval(() => {
+    fetch('/api/time').then(res => res.json()).then(data => {
+      document.getElementById('timeDisplay').textContent = `Server time (auto): ${data.time}`;
+    });
+  }, 5000);
+
+  // Task 2.13: Show loading spinner while fetching (done above in products fetch)
+</script>
+
+</body>
+</html>

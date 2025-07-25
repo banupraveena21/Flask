@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jinja2 + JS Example</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container p-4">
+    <h1>Hello {{ user_name }}</h1>
+
+    <!-- Task 4.2: Pass user_id to JS -->
+    <script>
+      const userId = {{ user_id }};
+      console.log("User ID from Flask:", userId);
+    </script>
+
+    <!-- Task 4.3: Render table -->
+    <table class="table" id="userTable">
+      <thead><tr><th>ID</th><th>Name</th></tr></thead>
+      <tbody>
+      {% for user in users %}
+        <tr data-userid="{{ user.id }}">
+          <td>{{ user.id }}</td><td>{{ user.name }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- Task 4.5: Jinja2 loop creates buttons -->
+    <div>
+      {% for cat in categories %}
+      <button class="btn btn-secondary btn-cat" data-cat="{{ cat }}">{{ cat }}</button>
+      {% endfor %}
+    </div>
+
+    <script>
+      // Task 4.4: Dynamic URL in JS
+      const apiUsersUrl = "{{ url_for('get_users') }}";
+
+      // Task 4.5: Button click handler
+      document.querySelectorAll('.btn-cat').forEach(btn => {
+        btn.addEventListener('click', e => {
+          const category = e.target.getAttribute('data-cat');
+          alert(`You clicked category: ${category}`);
+          // You can fetch filtered data here
+        });
+      });
+    </script>
+  </div>
+</body>
+</html>
